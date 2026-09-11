@@ -29,6 +29,8 @@ def run_chat_receiver():
 
       
       # TODO 2: Verificar se a mensagem é do tipo 'MSG'
+      if vetorMensagem[0] != "MSG":
+              continue
       # TODO 3: Extrair o ID da mensagem e o texto do usuário
       # TODO 4: Exibir no terminal a mensagem recebida e o ID correspondente
       # TODO 5: Montar o pacote de recibo no formato "DELIVERED|<ID>"
