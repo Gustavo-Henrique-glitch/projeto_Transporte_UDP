@@ -22,11 +22,7 @@ def run_chat_receiver():
       raw_message = data.decode("utf-8")
 
       # TODO 1: Fazer o split da mensagem delimitada por '|'
-      if raw_message is not None:
-        vetorMensagem=raw_message.split("|")
-      else:
-        continue
-
+      vetorMensagem=raw_message.split("|")
       
       # TODO 2: Verificar se a mensagem é do tipo 'MSG'
       if vetorMensagem[0] != "MSG":
