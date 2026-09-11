@@ -64,13 +64,14 @@ def run_chat_sender():
 
         # Fluxo de envio de mensagem normal:
         # TODO 7: Associar a mensagem ao msg_counter atual e salvar em pending_messages
-        pending_messages = {msg_counter:user_input}
+        pending_messages = {str(msg_counter):user_input}
         # TODO 8: Montar o pacote no formato "MSG|<ID>|<CONTEUDO>"
         pacote = f"MSG|{msg_counter}|{user_input}".encode("UTF-8")
         # TODO 9: Enviar o pacote via UDP usando s.sendto(...)
-        s.sendto(pacote,1024)
+        s.sendto(pacote,TARGET_IP)
         # TODO 10: Incrementar msg_counter e avisar na tela que ela está pendente
-
+        msg_counter+=1
+        print("Pendente")
       except KeyboardInterrupt:
         print("\nEncerrando cliente...")
         break
