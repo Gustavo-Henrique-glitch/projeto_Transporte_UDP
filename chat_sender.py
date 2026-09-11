@@ -29,7 +29,7 @@ def listen_receipts(sock):
          if id in pending_messages:
             del pending_messages [id]
             print("Entregue ✓✓")  
-      pass
+      
     except Exception:
       break
 
