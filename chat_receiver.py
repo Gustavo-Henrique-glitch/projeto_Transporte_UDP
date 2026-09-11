@@ -23,7 +23,7 @@ def run_chat_receiver():
 
       # TODO 1: Fazer o split da mensagem delimitada por '|'
       vetorMensagem=raw_message.split("|")
-      
+
       # TODO 2: Verificar se a mensagem é do tipo 'MSG'
       if vetorMensagem[0] != "MSG":
               continue
@@ -34,9 +34,9 @@ def run_chat_receiver():
       print("ID= {}".format(id))
       print("Mensagem= {}".format(mensagem))
       # TODO 5: Montar o pacote de recibo no formato "DELIVERED|<ID>"
-      recibo=f"DELIVERED|{id}"
+      pacote=f"DELIVERED|{id}".encode("utf-8")
       # TODO 6: Enviar o recibo de volta para a origem usando s.sendto(..., addr)
-      s.sendto(recibo,addr)
+      s.sendto(pacote,addr)
 
 if __name__ == "__main__":
   run_chat_receiver()
