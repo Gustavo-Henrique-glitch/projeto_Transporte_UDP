@@ -58,7 +58,7 @@ def run_chat_sender():
           # TODO 5: Exibir quantas e quais mensagens continuam em pending_messages
           with lock:
             tamanho = len(pending_messages)
-            print("Quantidade de mensagens Pendesntes: {}".format(tamanho))
+            print("Quantidade de mensagens Pendentes: {}".format(tamanho))
             for chave,valor in pending_messages.items():
               print("Id: {}\nMensagem: {}".format(chave,valor))
              
