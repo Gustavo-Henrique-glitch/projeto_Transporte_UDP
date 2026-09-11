@@ -48,6 +48,7 @@ def run_chat_sender():
     print("  /reenviar -> Reenvia todas as mensagens pendentes\n")
 
     while True:
+      addr= (TARGET_IP,PORT)
       try:
         user_input = input("Digite uma mensagem: ").strip()
         if not user_input:
@@ -65,6 +66,9 @@ def run_chat_sender():
         if user_input == "/reenviar":
           # TODO 6: Iterar por todas as mensagens ainda em pending_messages
           #         e reenviá-las com s.sendto(..., (TARGET_IP, PORT))
+          for chave,valor in pending_messages.items():
+             pacote_reenvio = f"MSG|{chave}|{valor}".encode("utf-8")
+             s.sendto(pacote_reenvio,addr)
           continue
 
         # Fluxo de envio de mensagem normal:
@@ -74,7 +78,6 @@ def run_chat_sender():
         # TODO 8: Montar o pacote no formato "MSG|<ID>|<CONTEUDO>"
         pacote = f"MSG|{msg_counter}|{user_input}".encode("utf-8")
         # TODO 9: Enviar o pacote via UDP usando s.sendto(...)
-        addr= (TARGET_IP,PORT)
         s.sendto(pacote,addr)
         # TODO 10: Incrementar msg_counter e avisar na tela que ela está pendente
         msg_counter+=1
