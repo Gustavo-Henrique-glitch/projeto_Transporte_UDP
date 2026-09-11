@@ -56,19 +56,22 @@ def run_chat_sender():
 
         if user_input == "/status":
           # TODO 5: Exibir quantas e quais mensagens continuam em pending_messages
-          tamanho = len(pending_messages)
-          print("Quantidade de mensagens Pendesntes: {}".format(tamanho))
-          for chave,valor in pending_messages.items():
-             print("Id: {}\nMensagem: {}".format(chave,valor))
+          with lock:
+            tamanho = len(pending_messages)
+            print("Quantidade de mensagens Pendesntes: {}".format(tamanho))
+            for chave,valor in pending_messages.items():
+              print("Id: {}\nMensagem: {}".format(chave,valor))
              
           continue
 
         if user_input == "/reenviar":
           # TODO 6: Iterar por todas as mensagens ainda em pending_messages
           #         e reenviá-las com s.sendto(..., (TARGET_IP, PORT))
-          for chave,valor in pending_messages.items():
-             pacote_reenvio = f"MSG|{chave}|{valor}".encode("utf-8")
-             s.sendto(pacote_reenvio,addr)
+          with lock:
+            for chave,valor in pending_messages.items():
+              pacote_reenvio = f"MSG|{chave}|{valor}".encode("utf-8")
+              s.sendto(pacote_reenvio,addr)
+          
           continue
 
         # Fluxo de envio de mensagem normal:
