@@ -40,7 +40,7 @@ def run_chat_receiver():
       # TODO 5: Montar o pacote de recibo no formato "DELIVERED|<ID>"
       recibo=f"DELIVERED|{id}"
       # TODO 6: Enviar o recibo de volta para a origem usando s.sendto(..., addr)
-
+      s.sendto(recibo,addr)
 
 if __name__ == "__main__":
   run_chat_receiver()
