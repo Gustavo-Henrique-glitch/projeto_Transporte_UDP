@@ -26,8 +26,9 @@ def listen_receipts(sock):
       # TODO 4: Com o lock adquirido, remover a mensagem de pending_messages
       #         e imprimir aviso visual de entrega confirmada (ex: [✓✓ Entregue])
       with lock:
-         del pending_messages ['id']
-         print("Entregue ✓✓")
+         if id in pending_messages:
+            del pending_messages [id]
+            print("Entregue ✓✓")  
       pass
     except Exception:
       break
