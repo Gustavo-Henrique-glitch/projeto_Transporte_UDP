@@ -36,7 +36,7 @@ def listen_receipts(sock):
 
 def run_chat_sender():
   global msg_counter
-
+  global pending_messages
   with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as s:
     # Inicia a thread que processa os ACKs recebidos em segundo plano
     listener = threading.Thread(target=listen_receipts, args=(s,), daemon=True)
@@ -64,6 +64,8 @@ def run_chat_sender():
 
         # Fluxo de envio de mensagem normal:
         # TODO 7: Associar a mensagem ao msg_counter atual e salvar em pending_messages
+        pending_messages = {msg_counter:user_input}
+        msg_counter= msg_counter + 1
         # TODO 8: Montar o pacote no formato "MSG|<ID>|<CONTEUDO>"
         # TODO 9: Enviar o pacote via UDP usando s.sendto(...)
         # TODO 10: Incrementar msg_counter e avisar na tela que ela está pendente
