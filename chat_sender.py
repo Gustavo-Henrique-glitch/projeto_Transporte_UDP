@@ -64,7 +64,8 @@ def run_chat_sender():
 
         # Fluxo de envio de mensagem normal:
         # TODO 7: Associar a mensagem ao msg_counter atual e salvar em pending_messages
-        pending_messages[str(msg_counter)] = user_input
+        with lock:
+           pending_messages[str(msg_counter)] = user_input
         # TODO 8: Montar o pacote no formato "MSG|<ID>|<CONTEUDO>"
         pacote = f"MSG|{msg_counter}|{user_input}".encode("utf-8")
         # TODO 9: Enviar o pacote via UDP usando s.sendto(...)
