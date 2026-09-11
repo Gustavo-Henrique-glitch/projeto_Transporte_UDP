@@ -22,6 +22,7 @@ def listen_receipts(sock):
       if vetorMensagem[0] != "DELIVERED":
                     continue
       # TODO 3: Extrair o ID confirmado
+      id = vetorMensagem[1]
       # TODO 4: Com o lock adquirido, remover a mensagem de pending_messages
       #         e imprimir aviso visual de entrega confirmada (ex: [✓✓ Entregue])
       pass
