@@ -67,6 +67,7 @@ def run_chat_sender():
         pending_messages = {msg_counter:user_input}
         msg_counter= msg_counter + 1
         # TODO 8: Montar o pacote no formato "MSG|<ID>|<CONTEUDO>"
+        pacote = f"MSG|{msg_counter-1}|{user_input}".encode("UTF-8")
         # TODO 9: Enviar o pacote via UDP usando s.sendto(...)
         # TODO 10: Incrementar msg_counter e avisar na tela que ela está pendente
 
