@@ -38,6 +38,7 @@ def run_chat_receiver():
       print("ID= {}".format(id))
       print("Mensagem= {}".format(mensagem))
       # TODO 5: Montar o pacote de recibo no formato "DELIVERED|<ID>"
+      recibo=f"DELIVERED|{id}"
       # TODO 6: Enviar o recibo de volta para a origem usando s.sendto(..., addr)
 
 
