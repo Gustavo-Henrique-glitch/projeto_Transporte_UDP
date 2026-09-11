@@ -69,7 +69,7 @@ def run_chat_sender():
         # TODO 8: Montar o pacote no formato "MSG|<ID>|<CONTEUDO>"
         pacote = f"MSG|{msg_counter}|{user_input}".encode("utf-8")
         # TODO 9: Enviar o pacote via UDP usando s.sendto(...)
-        addr= (TARGET_IP,5001)
+        addr= (TARGET_IP,PORT)
         s.sendto(pacote,addr)
         # TODO 10: Incrementar msg_counter e avisar na tela que ela está pendente
         msg_counter+=1
