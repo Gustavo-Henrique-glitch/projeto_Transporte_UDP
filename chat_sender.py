@@ -55,6 +55,11 @@ def run_chat_sender():
 
         if user_input == "/status":
           # TODO 5: Exibir quantas e quais mensagens continuam em pending_messages
+          tamanho = len(pending_messages)
+          print("Quantidade de mensagens Pendesntes: {}".format(tamanho))
+          for chave,valor in pending_messages.items():
+             print("Id: {}\nMensagem: {}".format(chave,valor))
+             
           continue
 
         if user_input == "/reenviar":
