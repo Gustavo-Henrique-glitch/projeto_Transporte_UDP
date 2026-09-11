@@ -22,6 +22,12 @@ def run_chat_receiver():
       raw_message = data.decode("utf-8")
 
       # TODO 1: Fazer o split da mensagem delimitada por '|'
+      if raw_message is not None:
+        vetorMensagem=raw_message.split("|")
+      else:
+        continue
+
+      
       # TODO 2: Verificar se a mensagem é do tipo 'MSG'
       # TODO 3: Extrair o ID da mensagem e o texto do usuário
       # TODO 4: Exibir no terminal a mensagem recebida e o ID correspondente
