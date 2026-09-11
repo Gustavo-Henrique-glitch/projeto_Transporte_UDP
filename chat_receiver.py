@@ -35,6 +35,8 @@ def run_chat_receiver():
       id= vetorMensagem[1]
       mensagem=vetorMensagem[2]
       # TODO 4: Exibir no terminal a mensagem recebida e o ID correspondente
+      print("ID= {}".format(id))
+      print("Mensagem= {}".format(mensagem))
       # TODO 5: Montar o pacote de recibo no formato "DELIVERED|<ID>"
       # TODO 6: Enviar o recibo de volta para a origem usando s.sendto(..., addr)
 
