@@ -17,6 +17,7 @@ def listen_receipts(sock):
       raw = data.decode("utf-8")
 
       # TODO 1: Fazer o parsing do recibo recebido
+      vetorMensagem= raw.split("|")
       # TODO 2: Verificar se o tipo é "DELIVERED"
       # TODO 3: Extrair o ID confirmado
       # TODO 4: Com o lock adquirido, remover a mensagem de pending_messages
